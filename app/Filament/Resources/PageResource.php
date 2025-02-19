@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -20,6 +21,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 // use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Str;
 
 class PageResource extends Resource
 {
@@ -35,12 +37,15 @@ class PageResource extends Resource
                     ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state)))
                     ->lazy()
                     ->required(),
-                TextInput::make('slug')->unique('pages', 'slug')->required(),
+                TextInput::make('slug')
+                    ->unique('pages', 'slug')
+                    ->required(),
                 Builder::make('blocks')
                     ->columnSpanFull()
                     ->label('Page content blocks')
                     ->helperText('Drag and drop blocks to change order')
                     ->schema([
+                        
                         Block::make('heading')
                             ->label('Heading')
                             ->columns(2)
@@ -71,6 +76,7 @@ class PageResource extends Resource
                             ]),
                         Block::make('markdown')
                             ->label('Markdown')
+                            ->columnSpanFull()
                             ->schema([
                                 RichEditor::make('content')
                                     ->label('Markdown content')
@@ -85,42 +91,117 @@ class PageResource extends Resource
                                     ->image()
                                     ->required(),
                                 TextInput::make('caption')
-                                    ->label('Image Caption')
+                                    ->label('Image Caption'),
                             ]),
                         Block::make('video')
                             ->label('Video')
                             ->schema([
-                                TextInput::make('video_rul')
+                                TextInput::make('video_url')
                                     ->label('Video URL')
                                     ->required(),
                             ]),
-                        
-                        Block::make('quote')
-                            ->label('Quote')
+                        Block::make('blog')
+                            ->label('Blog')
                             ->columns(2)
                             ->schema([
-                                TextArea::make('quote')
-                                    ->label('Quote')
+                                TextInput::make('title')
+                                    ->label('Blog Title')
                                     ->required(),
-                                TextInput::make('author')
-                                    ->label('Author'),
+                                TextInput::make('category')
+                                    ->label('Category')
+                                    ->required(),
                             ]),
-                        Block::make('testimonial')
-                            ->label('Testimonial')
+                        Block::make('faqs')
+                            ->label('FAQs')
+                            ->columnSpanFull()
+                            ->schema([
+                                Repeater::make('items')
+                                    ->label('FAQ Items')
+                                    ->schema([
+                                        TextInput::make('question')
+                                            ->label('Question')
+                                            ->required(),
+                                        Textarea::make('answer')
+                                            ->label('Answer')
+                                            ->required(),
+                                    ])
+                                    ->minItems(1)
+                                    ->columns(2),
+                            ]),
+                        Block::make('fun_fact')
+                            ->label('Fun Fact')
                             ->columns(2)
                             ->schema([
-                                TextArea::make('testimonial')
-                                ->columnSpanFull()
-                                    ->label('Testimonial')
+                                TextInput::make('label')
+                                    ->label('Label')
                                     ->required(),
-                                TextInput::make('name')
-                                    ->label('Name')
+                                TextInput::make('count')
+                                    ->label('Count')
+                                    ->numeric()
                                     ->required(),
-                                TextInput::make('role')
-                                    ->label('Role'),
+                            ]),
+                        Block::make('gallery')
+                            ->label('Image Gallery')
+                            ->columnSpanFull()
+                            ->schema([
+                                Repeater::make('images')
+                                    ->label('Images')
+                                    ->schema([
+                                        FileUpload::make('image')
+                                            ->label('Upload image')
+                                            ->image()
+                                            ->required(),
+                                        TextInput::make('caption')
+                                            ->label('Caption'),
+                                    ])
+                                    ->minItems(1)
+                                    ->columns(2),
+                            ]),
+                        Block::make('slider')
+                            ->label('Image Slider')
+                            ->columnSpanFull()
+                            ->schema([
+                                Select::make('autoplay')
+                                    ->label('Autoplay')
+                                    ->options([
+                                        'yes' => 'Yes',
+                                        'no'  => 'No',
+                                    ])
+                                    ->default('yes')
+                                    ->required(),
+                                Repeater::make('slides')
+                                    ->label('Slides')
+                                    ->schema([
+                                        FileUpload::make('image')
+                                            ->label('Slide image')
+                                            ->image()
+                                            ->required(),
+                                        TextInput::make('caption')
+                                            ->label('Slide caption'),
+                                    ])
+                                    ->minItems(1)
+                                    ->columns(2),
+                            ]),
+
+                        Block::make('map')
+                            ->label('Interactive Map')
+                            ->columns(2)
+                            ->schema([
+                                TextInput::make('address')
+                                    ->label('Address')
+                                    ->required(),
+                                TextInput::make('latitude')
+                                    ->label('Latitude')
+                                    ->numeric()
+                                    ->required(),
+                                TextInput::make('longitude')
+                                    ->label('Longitude')
+                                    ->numeric()
+                                    ->required(),
                             ]),
                         Block::make('layout')
                             ->label('Two Column Layout')
+                            ->columnSpanFull()
                             ->schema([
                                 Builder::make('left_column')
                                     ->label('Left Column')
@@ -141,7 +222,7 @@ class PageResource extends Resource
                                                     ->image()
                                                     ->required(),
                                                 TextInput::make('caption')
-                                                    ->label('Image Caption')
+                                                    ->label('Image Caption'),
                                             ]),
                                     ]),
                                 Builder::make('right_column')
@@ -163,16 +244,14 @@ class PageResource extends Resource
                                                     ->image()
                                                     ->required(),
                                                 TextInput::make('caption')
-                                                    ->label('Image Caption')
+                                                    ->label('Image Caption'),
                                             ]),
                                     ]),
                             ]),
-
-
-                    ])->required(),
+                    ])
+                    ->required(),
             ]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
