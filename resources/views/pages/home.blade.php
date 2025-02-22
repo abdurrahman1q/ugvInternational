@@ -481,42 +481,6 @@
 
     <!-- Slider Section -->
 
-    <section class="rts-application-area moving rts-section-padding v_1">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-12">
-                    <div class="rts__section--wrapper v__9">
-                        <h2 class="rts__section--title">Apply for Admission</h2>
-                        <p class="rts__section--description">Welcome to the gateway of possibilities your admission to
-                            University of Global Village. At University of Global Village, we understand.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- application form -->
-            <div class="row justify-content-md-center">
-                <div class="col-md-11 col-lg-6 col-xl-7">
-                    <div class="rts-admission-form-image">
-                        <img src="{{ asset('assets/images/contact/contact.jpg') }}" alt="">
-                    </div>
-                    <div class="rts-section-big-text">
-                        Admission Now
-                    </div>
-                </div>
-                <x-form.application />
-            </div>
-            <div class="rt-shape">
-                <img src="assets/images/feature/shape/01.svg" data-speed="0.04" alt="shape" class="rt-shape__1">
-                <img src="assets/images/feature/shape/02.svg" data-speed="0.04" alt="shape"
-                    class="shape rt-shape__2">
-                <img src="assets/images/feature/shape/03.svg" data-speed="0.04" alt="shape"
-                    class="shape rt-shape__3">
-                <img src="assets/images/feature/shape/04.svg" data-speed="0.04" alt="shape"
-                    class="shape rt-shape__4">
-                <img src="assets/images/feature/shape/05.svg" data-speed="0.04" alt="shape"
-                    class="shape rt-shape__5">
-            </div>
-        </div>
-    </section>
 
     <section class="rts__section rts__light pt--120 mb-3">
         <div class="container">

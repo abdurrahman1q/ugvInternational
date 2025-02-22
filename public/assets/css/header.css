@@ -1,0 +1,89 @@
+form .form-control {
+    border-width: 2px;
+    border-radius: 0.375rem;
+    height: 42px;
+}
+form .form-control {
+    border-width: 2px;
+    border-radius: 0.375rem;
+    height: 42px;
+}
+
+form .btn {
+    border-left: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.searchbar {
+    width: 100%;
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .searchbar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+.top-header {
+    background-color: #ffffff !important;
+}
+.offcanvas-body .nav-link {
+    color: #890c25 !important;
+}
+.nav-link:hover {
+    background-color: white !important;
+    color: #890c25 !important;
+    text-decoration: none;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.nav-item {
+    flex-grow: 1;
+    text-align: center;
+}
+.dropdown-menu {
+    border-radius: 0;
+    border: 1px solid #ddd;
+}
+.border-right {
+    border-right: 1px solid #ddd;
+}
+.dropdown-item {
+    padding-right: 30px;
+}
+
+/* Style for the submenu */
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu .dropdown-submenu > .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position submenu to the right */
+    margin-top: -1px;
+}
+
+.dropdown-menu .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Optional: Adjust hover effect styles */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-menu .dropdown-submenu:hover > .dropdown-item {
+    background-color: #e9ecef;
+}
