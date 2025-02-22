@@ -107,7 +107,7 @@
 @endpush
 <x-layouts.master>
 
-    <x-banner />
+    <x-banner :sliders="$sliders"/>
     <section class="rts-notice rts-section-padding rts-section-padding">
         <div class="container">
             <div class="row gy-5 gy-lg-0 justify-content-md-center">
@@ -369,117 +369,6 @@
         </div>
     </section>
 
-
-
-    {{-- <div class="rts-campus pt--100 rts-campus-bg mobile-padding moving">
-        <div class="container">
-            <div class="row justify-content-sm-center justify-content-lg-start">
-                <div class="col-lg-6 col-xl-5 col-md-10 col-sm-11">
-                    <div class="rts-left-section">
-                        <h2 class="section-title rt-white mb--55">
-                            Embark on a Journey: Unveiling the Story of University of Global Village
-                        </h2>
-                        <a href="" class="about-btn rts-nbg-btn btn-arrow 
-                rt-white">Learn
-                            More <span><i class="fa-sharp fa-regular fa-arrow-right"></i></span></a>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-7 col-md-10 col-sm-11">
-                    <div class="rts-right-section rt-relative">
-                        <p class="rt-white mb--40">Embark on a journey of knowledge, discovery, and growth at University
-                            of Global Village. Our admissions process is designed to identify bright, motivated
-                            individuals who
-                            are
-                            eager to contribute to our dynamic academic community.</p>
-                        <img class="round" src="assets/images/feature/01.jpg" alt="campus images">
-                        <div class="rts-round-shape"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-text rt-clip-text">About University</div>
-            <div class="rt-shape">
-                <img class="rt-shape__1" data-speed="0.04" src="assets/images/feature/shape/01.png" alt="">
-                <img class="shape rt-shape__2" data-speed="0.04" src="assets/images/feature/shape/02.png"
-                    alt="">
-                <img class="shape rt-shape__3" data-speed="0.04" src="assets/images/feature/shape/03.png"
-                    alt="">
-                <img class="shape rt-shape__4" data-speed="0.04" src="assets/images/feature/shape/04.png"
-                    alt="">
-            </div>
-        </div>
-    </div>
-
-    <section class="tution v__2 rts-section-padding">
-        <div class="container">
-            <div class="row justify-content-sm-center justify-content-md-start align-items-center g-5">
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div class="rts__section--wrapper v__7">
-                        <h2 class="rts__section--title">Tuition Fees at
-                            University of Global Village</h2>
-                        <p class="rts__section--description">
-                            At University of Global Village Name we are committed to providing a high-quality education
-                            that is
-                            accessible to a diverse range of students.
-                        </p>
-                        <a href="" class="rts-theme-btn btn-arrow">Plan Details
-                            <span><i class="fa-regular fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <x-cards.tuition_fee />
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div class="tution__single--box">
-                        <h5 class="tution__single--box--title">Graduate Programs</h5>
-                        <h6 class="tution__single--box--faculty">Graduate School/Department</h6>
-                        <ul class="tution__single--box--feature">
-                            <li>Full-Time Tuition (per semester): $241</li>
-                            <li>Part-Time Tuition (per credit): $141</li>
-                        </ul>
-                        <h6 class="tution__single--box--faculty">Additional Fees</h6>
-                        <ul class="tution__single--box--feature">
-                            <li>Technology Fee: $149 per semester</li>
-                            <li>Student Activity Fee: $99 per semester</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="campus v__2 pt--120 pb--60">
-        <div class="container">
-            <div class="campus__wrapper">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="campus__link">
-                            <a href="" class="campus__link--btn">
-                                Campus Life
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="campus__right--text">
-                            <h2 class="campus__right--text--title">
-                                Thriving Beyond Classes Campus Life at unipix
-                            </h2>
-                            <p class="campus__right--text--description">
-                                Step into a World of Possibilities: Unipix Campus Life is a Hub of Energy, Creativity,
-                                and Collaboration. Discover a Home Away from Home Where Every Moment Counts."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="campus__paralax--image" style="background-image: url('assets/images/campus/paralax__image.jpg');">
-    </div> --}}
-    <!-- Include Slick CSS -->
-
-    <!-- Slider Section -->
 
 
     <section class="rts__section rts__light pt--120 mb-3">

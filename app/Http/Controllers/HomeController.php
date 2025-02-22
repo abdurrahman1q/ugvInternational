@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Faculty;
 use App\Models\Notice;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,8 +31,8 @@ class HomeController extends Controller
         $notices = Notice::latest()->where('status', 'Published')->get();
         $events = Event::latest()->where('status', 'Published')->limit(3)->get();
         $blogs = Blog::latest()->where('status', 'Published')->limit(3)->get();
-
-        return view('pages.home', compact('notices', 'events', 'blogs'));
+        $sliders = Slider::latest()->get();
+        return view('pages.home', compact('notices', 'events', 'sliders', 'blogs'));
     }
     public function about()
     {

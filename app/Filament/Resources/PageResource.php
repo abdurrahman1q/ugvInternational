@@ -26,6 +26,7 @@ use Str;
 class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
+    protected static ?string $navigationGroup = 'Content Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
