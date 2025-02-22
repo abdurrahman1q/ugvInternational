@@ -10,7 +10,7 @@
     @else
         <a class="nav-link text-white px-3 py-4 dropdown-toggle {{ $item->link_class }}" href="{{ $item->link }}"
             style="font-size: 14px" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="{{ $item->parameters['icon'] }} me-2"></i> {{ $item->name }}
+            <i class=" me-2"></i> {{ $item->name }}
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             @foreach ($item->children as $child)

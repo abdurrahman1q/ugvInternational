@@ -79,11 +79,3 @@ form .btn {
     display: block;
 }
 
-/* Optional: Adjust hover effect styles */
-.dropdown-menu .dropdown-item:hover {
-    background-color: #f8f9fa;
-}
-
-.dropdown-menu .dropdown-submenu:hover > .dropdown-item {
-    background-color: #e9ecef;
-}
