@@ -107,7 +107,33 @@
 @endpush
 <x-layouts.master>
 
-    <x-banner :sliders="$sliders"/>
+    <x-banner :sliders="$sliders" />
+    <div class="rts-funfact mt-2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 ">
+                    <div class="rts-funfact-wrapper">
+                        <div class="single-cta-item text-center">
+                            <h2 class="single-cta-item__title"><i class="fas fa-users"></i></h2>
+                            <p>Expert Teachers</p>
+                        </div>
+                        <div class="single-cta-item text-center">
+                            <h2 class="single-cta-item__title"><i class="fa-solid fa-video"></i></h2>
+                            <p>Multimedia Class Room</p>
+                        </div>
+                        <div class="single-cta-item text-center">
+                            <h2 class="single-cta-item__title"><i class="fa-solid fa-book-atlas"></i></h2>
+                            <p>Library</p>
+                        </div>
+                        <div class="single-cta-item text-center">
+                            <h2 class="single-cta-item__title"><i class="fa-solid fa-clapperboard"></i></h2>
+                            <p>Automation System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="rts-notice rts-section-padding rts-section-padding">
         <div class="container">
             <div class="row gy-5 gy-lg-0 justify-content-md-center">

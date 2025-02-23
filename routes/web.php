@@ -18,4 +18,6 @@ Route::controller(PagesController::class)->group(function () {
     Route::get('/blog/{blog:slug}', 'blog_details')->name('blog.details');
     Route::get('/events', 'event')->name('events');
     Route::get('/event/{event:slug}', 'event_details')->name('event.details');
+    Route::get('students', 'students')->name('students');
+    Route::get('pages/{page}', 'page')->name('page');
 });

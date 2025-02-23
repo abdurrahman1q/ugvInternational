@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
@@ -39,14 +40,14 @@ class PageResource extends Resource
                     ->lazy()
                     ->required(),
                 TextInput::make('slug')
-                    ->unique('pages', 'slug')
+                    ->readOnlyOn('edit')
                     ->required(),
                 Builder::make('blocks')
                     ->columnSpanFull()
                     ->label('Page content blocks')
                     ->helperText('Drag and drop blocks to change order')
                     ->schema([
-                        
+
                         Block::make('heading')
                             ->label('Heading')
                             ->columns(2)
@@ -66,7 +67,17 @@ class PageResource extends Resource
                                     ])
                                     ->default('h2')
                                     ->required(),
+                                Select::make('alignment')
+                                    ->label('Text Alignment')
+                                    ->options([
+                                        'text-left'   => 'Left',
+                                        'text-center' => 'Center',
+                                        'text-right'  => 'Right',
+                                    ])
+                                    ->default('left') 
+                                    ->required(),
                             ]),
+
                         Block::make('text')
                             ->label('Text')
                             ->columnSpanFull()
@@ -79,10 +90,11 @@ class PageResource extends Resource
                             ->label('Markdown')
                             ->columnSpanFull()
                             ->schema([
-                                RichEditor::make('content')
+                                TinyEditor::make('content')
                                     ->label('Markdown content')
                                     ->required(),
                             ]),
+                          
                         Block::make('image')
                             ->label('Image')
                             ->columns(2)

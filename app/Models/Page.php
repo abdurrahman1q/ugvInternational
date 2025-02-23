@@ -18,4 +18,12 @@ class Page extends Model
     protected $casts = [
         'blocks' => 'array',
     ];
+    public function setBlocksAttribute($value)
+    {
+        $this->attributes['blocks'] = is_array($value) ? json_encode($value) : $value;
+    }
+    public function getBlocksAttribute($value)
+    {
+        return json_decode($value, true) ?? [];
+    }
 }
