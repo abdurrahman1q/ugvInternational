@@ -12,11 +12,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function faculty(Faculty $faculty)
-    {
 
-        return view('pages.faculty.index', compact('faculty'));
-    }
     public function department_details()
     {
         return view('pages.faculty.details');
@@ -47,7 +43,7 @@ class PagesController extends Controller
     public function blog_details(Blog $blog)
     {
 
-        if ($blog->status != 'Published' || $blog->published_at > now()) {
+        if ($blog->status != 'Published') {
             return abort(404);
         }
         $random_upcoming_event = Event::where('status', 'Published')->where('start_date', '>', now())->inRandomOrder()->first();
