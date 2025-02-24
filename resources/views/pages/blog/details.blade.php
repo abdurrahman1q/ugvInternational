@@ -35,7 +35,7 @@
                                         class="fa-light fa-clock"></i></span>{{ $blog->published_at->format('d M Y H:i:a') }}</span>
                         </div>
                         <h3 class="blog-title">{{ $blog->title }}</h3>
-                        <p>{{ $blog->content }}</p>
+                        <p>{!! $blog->content !!}</p>
                     </article>
                     <div class="blog-info">
                         {{-- <div class="blog-tags">
