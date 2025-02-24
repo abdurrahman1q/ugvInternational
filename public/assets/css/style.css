@@ -17792,15 +17792,17 @@ xclip
     padding-bottom: 100px;
 }
 .banner.v__2 .banner__wrapper .banner__slides--container.banner__height {
-    height: 895px;
+    /* height: 895px; */
     display: flex;
     align-items: flex-end;
+    aspect-ratio: 16/5;
 }
 @media screen and (max-width: 992px) {
     .banner.v__2 .banner__wrapper .banner__slides--container.banner__height {
         align-items: center;
         justify-content: center;
-        height: 750px;
+        /* height: 750px; */
+    aspect-ratio: 16/5;
     }
 }
 .banner.v__2 .banner__wrapper .banner__slides--content {
