@@ -222,7 +222,7 @@ class PageResource extends Resource
                                         Block::make('text')
                                             ->label('Text')
                                             ->schema([
-                                                Textarea::make('content')
+                                                RichEditor::make('content')
                                                     ->label('Text content')
                                                     ->required(),
                                             ]),
@@ -244,7 +244,7 @@ class PageResource extends Resource
                                         Block::make('text')
                                             ->label('Text')
                                             ->schema([
-                                                Textarea::make('content')
+                                                RichEditor::make('content')
                                                     ->label('Text content')
                                                     ->required(),
                                             ]),
