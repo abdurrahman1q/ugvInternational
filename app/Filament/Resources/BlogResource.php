@@ -75,11 +75,15 @@ class BlogResource extends Resource
                         'Archived' => 'Archived',
                     ])
                     ->default('Draft')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if ($state === 'Published') {
+                            $set('published_at', now());
+                        }
+                    })
                     ->label('Status'),
-
                 DateTimePicker::make('published_at')
-                    ->nullable()
-                    ->label('Published At'),
+                    ->hidden(fn($get) => $get('status') !== 'Published')
+                    ->label('Publish Date'),
             ]);
     }
 
@@ -97,7 +101,6 @@ class BlogResource extends Resource
                     ])
                     ->label('Status'),
                 TextColumn::make('published_at')->label('Published At')->dateTime(),
-                TextColumn::make('creator.name')->label('Created By')->searchable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')

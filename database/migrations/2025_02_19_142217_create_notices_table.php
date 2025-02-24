@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->enum('type', ['general', 'exam', 'admission'])->default('General');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->string('status')->default('Draft');
             $table->timestamp('published_at')->nullable();
             $table->json('files')->nullable();

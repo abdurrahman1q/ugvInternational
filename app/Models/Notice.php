@@ -13,7 +13,6 @@ class Notice extends Model
         'title',
         'content',
         'type',
-        'created_by',
         'status',
         'published_at',
         'files',
@@ -24,8 +23,5 @@ class Notice extends Model
     ];
 
 
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
+
 }

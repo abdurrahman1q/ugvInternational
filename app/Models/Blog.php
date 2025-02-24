@@ -19,10 +19,7 @@ protected function casts(){
         
     ];
 }
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
+
     public function getImage()
     {
         if ($this->image_path) {

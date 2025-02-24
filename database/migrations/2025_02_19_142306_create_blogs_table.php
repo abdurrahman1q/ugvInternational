@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('excerpt')->nullable();
             $table->string('status')->default('Draft'); 
             $table->string('image_path')->nullable();
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -29,7 +29,6 @@ return new class extends Migration
             
             $table->string('status')->default('Draft');
             $table->timestamp('published_at')->nullable();
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->string('image_path')->nullable();
             $table->json('images')->nullable();
             

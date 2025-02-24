@@ -16,7 +16,6 @@ class Event extends Model
         'start_date',
         'end_date',
         'status',
-        'created_by',
         'image_path',
         'images',
     ];
@@ -33,10 +32,7 @@ class Event extends Model
                     ->where('published_at', '<=', now());
     }
 
-    public function creator()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
+ 
     public function getImage()
     {
         if ($this->image_path) {

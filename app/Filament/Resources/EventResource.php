@@ -171,7 +171,6 @@ class EventResource extends Resource
                     ])
                     ->label('Status'),
 
-                TextColumn::make('creator.name')->label('Created By')->searchable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
