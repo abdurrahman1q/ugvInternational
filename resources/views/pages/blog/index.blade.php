@@ -58,7 +58,8 @@
 
             </div>
             <div class="rts-load-more-btn rt-center mt--60">
-                <a href="#" class="rts-theme-btn primary primary lh-100">Load More</a>
+                {{$blogs->links()}}
+                {{-- <a href="#" class="rts-theme-btn primary primary lh-100">Load More</a> --}}
             </div>
         </div>
     </div>

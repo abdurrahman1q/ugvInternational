@@ -41,7 +41,7 @@ class PagesController extends Controller
     }
     public function blog()
     {
-        $blogs = Blog::latest()->where('status', 'Published')->where('published_at', '<=', now())->paginate(6);
+        $blogs = Blog::latest()->where('status', 'Published')->paginate(6);
         return view('pages.blog.index', compact('blogs'));
     }
     public function blog_details(Blog $blog)
