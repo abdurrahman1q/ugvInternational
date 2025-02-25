@@ -1,197 +1,143 @@
 <x-layouts.master>
-        <!-- BREADCRUMB AREA -->
-        <section class="rts-breadcrumb breadcrumb-height breadcumb-bg" style="background-image: url({{asset('assets/images/banner/breadcrumb.jpg')}});">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb-content">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Campus Life</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Athletics</li>
+    <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
+        style="background-image: url('{{ asset('assets/images/banner/breadcrumb.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('notices') }}">Notice</a></li>
+                        </ul>
+                        <h2 class="section-title">{{ $notice->title }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="rts-notice-details rts-section-padding">
+        <div class="container">
+            <div class="row justify-content-md-center justify-content-start">
+                <div class="col-lg-7 col-md-10 mb-5 mb-lg-0">
+                    <div class="rts-notice-full">
+                        <div class="notice-content">
+                            <h4 class="notice-title mb--40">{{ $notice->title }}</h4>
+                            <div class="notice-content__description">
+                                {!! $notice->content !!}
+                            </div>
+                            @if ($notice->files)
+                                @php $files = $notice->files; @endphp
+                                <div class="notice-content__download mt--30">
+                                    @foreach ($files as $file)
+                                        <a href="{{ asset('storage/' . $file) }}" class="rts-theme-btn" download>
+                                            Download <span><i class="fa-sharp fa-light fa-file-pdf"></i></span>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-10">
+                    <div class="rts-notice-section">
+                        <div class="rts-section rt-between pb--25 rts-border-bottom-2">
+                            <h4 class="rts-section-title">Notice</h4>
+                        </div>
+                        <div class="rts-tab">
+                            <ul class="nav nav-pills pb--30" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-home" type="button" role="tab"
+                                        aria-controls="pills-home" aria-selected="true">Latest</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-profile" type="button" role="tab"
+                                        aria-controls="pills-profile" aria-selected="false">Exam</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-contact" type="button" role="tab"
+                                        aria-controls="pills-contact" aria-selected="false">Admission</button>
+                                </li>
                             </ul>
-                            <h2 class="section-title">Fitness Athletics</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- BREADCRUMB AREA END -->
-    
-    
-        <!-- single athletics content -->
-        <div class="rts-athletics rts-section-padding">
-            <div class="container">
-                <div class="rts-athletics__content">
-                    <div class="row g-5">
-                        <div class="col-lg-6">
-                            <div class="left-content">
-                                <div class="athletics-image">
-                                    <img src="{{asset('assets/images/campus/10.jpg')}}" alt="campus-single">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab" tabindex="0">
+                                    <ul class="list-unstyled notice-content-box">
+                                        @foreach ($latestNotices as $latest)
+                                            <li class="single-notice">
+                                                <div class="single-notice-item">
+                                                    <div class="notice-date">
+                                                        {{ $latest->published_at ? $latest->published_at->format('d') : '' }}
+                                                        <span>{{ $latest->published_at ? $latest->published_at->format('M') : '' }}</span>
+                                                    </div>
+                                                    <div class="notice-content">
+                                                        <p>
+                                                            <a
+                                                                href="{{ route('notices.show', ['notice' => $latest]) }}">
+                                                                {{ $latest->title }}
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <p class="athletics-description mt--35">
-                                    We have so many exciting and memorable games that have been sitting in cold storage,
-                                    with no one able to watch them or enjoy them,” said Imry Halevi, assistant director of
-                                    athletics and director of multimedia and production. “Our goal is to open up our history
-                                    to our alumni and fans.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="right-content">
-                                <div class="right-content__section">
-                                    <h2 class="rts-section-title mb--15">Unipix Athletics opens
-                                        the vault to sports
-                                    </h2>
-                                    <p class="description">
-                                        Whether it’s watching Bobby Kennedy score a touchdown in 1947 or the
-                                        1990s NCAA championship win for the women’s lacrosse team, the launch
-                                        of the new Harvard Athletics Video Vault makes it possible for sports fans to relive some of the University’s most historic sporting moments.
-                                    </p>
-                                    <div class="athletics-image mt--45">
-                                        <img src="{{asset('assets/images/campus/11.jpg')}}" alt="campus-single">
-                                    </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab" tabindex="0">
+                                    <ul class="list-unstyled notice-content-box">
+                                        @foreach ($examNotices as $exam)
+                                            <li class="single-notice">
+                                                <div class="single-notice-item">
+                                                    <div class="notice-date">
+                                                        {{ $exam->published_at ? $exam->published_at->format('d') : '' }}
+                                                        <span>{{ $exam->published_at ? $exam->published_at->format('M') : '' }}</span>
+                                                    </div>
+                                                    <div class="notice-content">
+                                                        <p>
+                                                            <a href="{{ route('notices.show', ['notice' => $exam]) }}">
+                                                                {{ $exam->title }}
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                    aria-labelledby="pills-contact-tab" tabindex="0">
+                                    <ul class="list-unstyled notice-content-box">
+                                        @foreach ($admissionNotices as $admission)
+                                            <li class="single-notice">
+                                                <div class="single-notice-item">
+                                                    <div class="notice-date">
+                                                        {{ $admission->published_at ? $admission->published_at->format('d') : '' }}
+                                                        <span>{{ $admission->published_at ? $admission->published_at->format('M') : '' }}</span>
+                                                    </div>
+                                                    <div class="notice-content">
+                                                        <p>
+                                                            <a
+                                                                href="{{ route('notices.show', ['notice' => $admission]) }}">
+                                                                {{ $admission->title }}
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- single athletics content end -->
-    
-        <!-- athletics gallery -->
-        <div class="rts-gallery section-bg rts-section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="rts-section mb--40 rt-center">
-                        <h2 class="rts-section-title">University Sport Gallery</h2>
-                    </div>
-                </div>
-                <div class="gallery-area">
-                    <div class="row g-5">
-                        <!-- single gallery item -->
-                        <x-cards.gallery />
-                        <!-- single gallery item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-gallery">
-                                <a href="assets/images/campus/gallery/2x2.jpg" class="single-gallery__item">
-                                    <img src="assets/images/campus/gallery/02.jpg" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- single gallery item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-gallery">
-                                <a href="assets/images/campus/gallery/2x3.jpg" class="single-gallery__item">
-                                    <img src="assets/images/campus/gallery/03.jpg" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- single gallery item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-gallery">
-                                <a href="assets/images/campus/gallery/2x4.jpg" class="single-gallery__item">
-                                    <img src="assets/images/campus/gallery/04.jpg" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- single gallery item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-gallery">
-                                <a href="assets/images/campus/gallery/2x5.jpg" class="single-gallery__item">
-                                    <img src="assets/images/campus/gallery/05.jpg" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- single gallery item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-gallery">
-                                <a href="assets/images/campus/gallery/2x6.jpg" class="single-gallery__item">
-                                    <img src="assets/images/campus/gallery/06.jpg" alt="gallery">
-                                    <div class="single-gallery__icon">
-                                        <i class="fa-light fa-circle-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
-        <!-- athletics gallery end -->
-    
-        <!-- section three -->
-        <!-- single section -->
-        <div class="rts-campus-section rts-section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="rts-section rt-center mb--45">
-                        <h3 class="rts-section-title">Athletics, Recreation, & Wellness</h3>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <!-- single item -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-item">
-                            <div class="single-item__content">
-                                <div class="single-item__image">
-                                    <img src="{{asset('assets/images/campus/07.jpg')}}" alt="item-image">
-                                </div>
-                                <div class="single-item__meta">
-                                    <h5 class="item-title"><a href="#">Recreation and Wellness</a></h5>
-                                    <p class="item-description">Students, faculty, recreational facilities and wellness programs.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- single item -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-item">
-                            <div class="single-item__content">
-                                <div class="single-item__image">
-                                    <img src="{{asset('assets/images/campus/07.jpg')}}" alt="item-image">
-                                </div>
-                                <div class="single-item__meta">
-                                    <h5 class="item-title"><a href="#">Recreation and Wellness</a></h5>
-                                    <p class="item-description">Students, faculty, recreational facilities and wellness programs.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- single item -->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-item">
-                            <div class="single-item__content">
-                                <div class="single-item__image">
-                                    <img src="{{asset('assets/images/campus/07.jpg')}}" alt="item-image">
-                                </div>
-                                <div class="single-item__meta">
-                                    <h5 class="item-title"><a href="#">Recreation and Wellness</a></h5>
-                                    <p class="item-description">Students, faculty, recreational facilities and wellness programs.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <!-- single section end -->
-    
-    
+    </div>
 </x-layouts.master>

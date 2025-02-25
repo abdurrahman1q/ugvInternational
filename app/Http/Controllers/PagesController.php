@@ -31,10 +31,34 @@ class PagesController extends Controller
 
         return view('pages.notices.index', compact('notices'));
     }
-    public function notice_deatils()
+    public function notice_details(Notice $notice)
     {
-        return view('pages.notices.details');
+        if ($notice->status != 'Published') {
+            return abort(404);
+        }
+        $latestNotices = Notice::where('status', 'Published')
+            ->where('id', '!=', $notice->id)
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        $examNotices = Notice::where('status', 'Published')
+            ->where('type', 'exam')
+            ->where('id', '!=', $notice->id)
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        $admissionNotices = Notice::where('status', 'Published')
+            ->where('type', 'admission')
+            ->where('id', '!=', $notice->id)
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        return view('pages.notices.details', compact('notice', 'latestNotices', 'examNotices', 'admissionNotices'));
     }
+
     public function blog()
     {
         $blogs = Blog::latest()->where('status', 'Published')->paginate(6);

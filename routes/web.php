@@ -13,7 +13,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(PagesController::class)->group(function () {
 
     Route::get('/notices', 'notices')->name('notices');
-    Route::get('/notice/{notice}', 'notice_deatils')->name('notices.show');
+    Route::get('/notice/{notice:id}', 'notice_details')->name('notices.show');
     Route::get('/blogs', 'blog')->name('blogs');
     Route::get('/blog/{blog:slug}', 'blog_details')->name('blog.details');
     Route::get('/events', 'event')->name('events');

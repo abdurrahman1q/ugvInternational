@@ -1,4 +1,4 @@
-<footer class="rts-footer v_2 pt--100">
+<footer class="rts-footer v_2">
     <div class="container">
         <div class="row gy-5 gy-lg-0">
             <div class="col-lg-4 col-md-6 col-sm-6">
