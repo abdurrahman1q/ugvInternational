@@ -19,6 +19,7 @@
                                                 <h1 class="banner__slides--content--title">
                                                     {{ $slider->title }}
                                                 </h1>
+                                                
                                                 @if ($slider->link)
                                                     <a href="{{ $slider->link }}" class="rts-theme-btn btn-arrow">
                                                         Visit

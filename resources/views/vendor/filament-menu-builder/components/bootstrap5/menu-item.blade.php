@@ -3,9 +3,9 @@
         <a target="{{ $item->target }}" class="nav-link text-white px-3 py-4 {{ $item->link_class }}"
             href="{{ $item->link }}" style="font-size: 14px">
             @if ($item->parameters->has('icon'))
-                <i class="{{ $item->parameters['icon'] }} me-2"></i>
+                {{ $item->parameters['icon'] }}
             @endif
-            {{ $item->name }}
+            <span class="ms-2"> {{ $item->name }}</span>
         </a>
     @else
         <a class="nav-link text-white px-3 py-4 dropdown-toggle {{ $item->link_class }}" href="{{ $item->link }}"
