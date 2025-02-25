@@ -23,7 +23,7 @@
 
     </div>
 </header>
-
+<div id="search-results"></div>
 
 <header class="bg-danger sticky-top d-none d-md-block">
     <div class="container">
