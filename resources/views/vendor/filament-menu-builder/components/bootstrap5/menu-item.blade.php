@@ -3,7 +3,7 @@
         <a target="{{ $item->target }}" class="nav-link text-white px-3 py-4 {{ $item->link_class }}"
             href="{{ $item->link }}" style="font-size: 14px">
             @if ($item->parameters->has('icon'))
-                {{ $item->parameters['icon'] }}
+                {!! $item->parameters['icon'] !!}
             @endif
             <span class="ms-2"> {{ $item->name }}</span>
         </a>
