@@ -14,9 +14,9 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
 
-    public function department_details()
+    public function search()
     {
-        return view('pages.faculty.details');
+        return view('pages.search');
     }
     public function faculty_staff()
     {

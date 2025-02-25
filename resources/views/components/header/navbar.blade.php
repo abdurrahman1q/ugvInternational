@@ -11,15 +11,17 @@
         </button>
         <!-- Search Bar -->
         <div class="position-relative searchbar mt-3 mt-md-0">
-            <form action="{{ route('search') }}" method="GET">
+            <form action="https://www.google.com/search" method="GET">
                 <input class="form-control border-dark" type="search" placeholder="Search" aria-label="Search"
-                    name="query" style="height: 42px; padding-right: 50px; width: 100%;">
+                    name="q" style="height: 42px; padding-right: 50px; width: 100%;">
+                <input type="hidden" name="sitesearch" value="https://intugv.sohojware.com">
                 <button type="submit" class="btn btn-dark position-absolute top-0 end-0"
                     style="height: 42px; width: 42px; border-radius: 0 0.375rem 0.375rem 0;">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
+        
     </div>
 </header>
 

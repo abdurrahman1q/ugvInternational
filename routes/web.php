@@ -11,7 +11,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::controller(PagesController::class)->group(function () {
-
+    Route::get('search', 'search')->name('search');
     Route::get('/notices', 'notices')->name('notices');
     Route::get('/notice/{notice:id}', 'notice_details')->name('notices.show');
     Route::get('/blogs', 'blog')->name('blogs');
