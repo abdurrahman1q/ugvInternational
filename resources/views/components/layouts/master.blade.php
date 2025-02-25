@@ -20,7 +20,15 @@
     @stack('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-
+    <style>
+        body {
+            color: #fff !important;
+            background-color: #E5E4E2;
+            /* opacity: 0.9; */
+            /* background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#c6c9fc55, #c6c9fc); */
+       
+        }
+    </style>
 </head>
 
 <body>

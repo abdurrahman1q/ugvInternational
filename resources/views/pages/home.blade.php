@@ -109,7 +109,7 @@
 
 
     <x-banner :sliders="$sliders" />
-    <div class="rts-funfact mt-2">
+    <div class="rts-funfact my-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 ">
@@ -135,7 +135,7 @@
             </div>
         </div>
     </div>
-    <section class="rts-notice rts-section-padding rts-section-padding">
+    <section class="rts-notice rts-section-padding rts-section-padding bg-white">
         <div class="container">
             <div class="row gy-5 gy-lg-0 justify-content-md-center">
                 <div class="col-md-11 col-lg-7">
