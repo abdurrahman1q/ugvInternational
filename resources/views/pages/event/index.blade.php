@@ -53,6 +53,10 @@
 
 
             </div>
+            <div class="rts-load-more-btn rt-center mt--60">
+                {{ $events->links() }}
+                {{-- <a href="#" class="rts-theme-btn primary primary lh-100">Load More</a> --}}
+            </div>
         </div>
     </div>
     <!-- university event list end -->

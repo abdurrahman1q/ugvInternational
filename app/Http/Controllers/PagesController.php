@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Faculty;
+use App\Models\Gallery;
 use App\Models\Notice;
 use App\Models\Page;
 use App\Models\Student;
@@ -105,5 +106,15 @@ class PagesController extends Controller
         $page = Page::where('slug', $slug)->firstOrFail();
 
         return view('pages.pages.show', compact('page'));
+    }
+    public function galleries()
+    {
+        $galleries = Gallery::latest()->paginate(6);
+
+        return view('pages.galleries.index', compact('galleries'));
+    }
+    public function gallery(Gallery $gallery)
+    {
+        return view('pages.galleries.details', compact('gallery'));
     }
 }

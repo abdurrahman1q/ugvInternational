@@ -20,4 +20,6 @@ Route::controller(PagesController::class)->group(function () {
     Route::get('/event/{event:slug}', 'event_details')->name('event.details');
     Route::get('students', 'students')->name('students');
     Route::get('pages/{page}', 'page')->name('page');
+    Route::get('galleries', 'galleries')->name('galleries');
+    Route::get('gallery/{gallery}', 'gallery')->name('gallery.details');
 });

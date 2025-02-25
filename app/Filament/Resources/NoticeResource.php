@@ -51,7 +51,7 @@ class NoticeResource extends Resource
                 FileUpload::make('files')
                     ->label('Attachments')
                     ->multiple()
-                    ->enableDownload(),
+                    ->downloadable(),
                 Select::make('status')
                     ->options([
                         'Draft' => 'Draft',
@@ -59,9 +59,12 @@ class NoticeResource extends Resource
                         'Archived' => 'Archived',
                     ])
                     ->default('Draft')
-                    ->required()->afterStateUpdated(function ($state, callable $set) {
+                    ->required()
+                    ->afterStateUpdated(function ($state, callable $set) {
                         if ($state === 'Published') {
                             $set('published_at', now());
+                        } else {
+                            $set('published_at', null);
                         }
                     }),
                 Select::make('type')
@@ -72,10 +75,12 @@ class NoticeResource extends Resource
                     ])
                     ->default('General')
                     ->required(),
-
-
+                DateTimePicker::make('published_at')
+                    ->label('Published At')
+                    ->hidden(fn ($get) => $get('status') !== 'Published'),
             ]);
     }
+    
 
     public static function table(Table $table): Table
     {
