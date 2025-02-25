@@ -83,7 +83,7 @@
     <script src="{{ asset('assets/js/plugins/nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             new Splide('#noticeSlider', {
                 type: 'loop',
                 perPage: 2,
@@ -95,11 +95,25 @@
                 arrows: false,
 
                 breakpoints: {
-                    768: { perPage: 2 },
-                    480: { perPage: 1 }
+                    768: {
+                        perPage: 2
+                    },
+                    480: {
+                        perPage: 1
+                    }
                 }
             }).mount();
         });
+    </script>
+    <script async src="https://cse.google.com/cse.js?cx=a5851bf7a6e7f47e8"></script>
+    <script>
+        function searchGoogle() {
+            let query = document.getElementById('search-query').value;
+            let resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = `<gcse:searchresults-only></gcse:searchresults-only>`;
+            document.querySelector("gcse\\:searchresults-only").setAttribute("queryParameterName", query);
+            return false; // Prevent form submission
+        }
     </script>
     @stack('script')
 </body>

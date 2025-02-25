@@ -11,17 +11,16 @@
         </button>
         <!-- Search Bar -->
         <div class="position-relative searchbar mt-3 mt-md-0">
-            <form action="https://www.google.com/search" method="GET">
-                <input class="form-control border-dark" type="search" placeholder="Search" aria-label="Search"
-                    name="q" style="height: 42px; padding-right: 50px; width: 100%;">
-                <input type="hidden" name="sitesearch" value="https://intugv.sohojware.com">
+            <form onsubmit="return searchGoogle();">
+                <input id="search-query" class="form-control border-dark" type="search" placeholder="Search"
+                    aria-label="Search" style="height: 42px; padding-right: 50px; width: 100%;">
                 <button type="submit" class="btn btn-dark position-absolute top-0 end-0"
                     style="height: 42px; width: 42px; border-radius: 0 0.375rem 0.375rem 0;">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
-        
+
     </div>
 </header>
 
@@ -29,8 +28,8 @@
 <header class="bg-danger sticky-top d-none d-md-block">
     <div class="container">
         <nav class="d-flex align-items-center">
-            <x-filament-menu-builder::menu slug="navbar" view="filament-menu-builder::components.bootstrap5.menu"/>
-        
+            <x-filament-menu-builder::menu slug="navbar" view="filament-menu-builder::components.bootstrap5.menu" />
+
         </nav>
     </div>
 </header>
@@ -41,8 +40,8 @@
     </div>
     <div class="offcanvas-body">
         <ul class="nav flex-column">
-            <x-filament-menu-builder::menu slug="navbar" view="filament-menu-builder::components.bootstrap5.menu"/>
-        
+            <x-filament-menu-builder::menu slug="navbar" view="filament-menu-builder::components.bootstrap5.menu" />
+
         </ul>
     </div>
 </div>

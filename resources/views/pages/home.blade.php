@@ -106,6 +106,7 @@
     </style>
 @endpush
 <x-layouts.master>
+    <div id="search-results"></div>
 
     <x-banner :sliders="$sliders" />
     <div class="rts-funfact mt-2">
