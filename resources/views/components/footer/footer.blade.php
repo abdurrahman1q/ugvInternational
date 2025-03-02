@@ -4,14 +4,14 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="rts-footer-widget w-320">
                     <a href="{{ route('home') }}" class="d-block rts-footer-logo mb--40">
-                        <img src="{{ asset('assets/images/UGV-Logo-01.png') }}" style="height: 100px; background-color: white;"
-                            alt="Ugv">
+                        <img src="{{ asset('assets/images/UGV-Logo-01.png') }}"
+                            style="height: 100px; background-color: white;" alt="Ugv">
                     </a>
                     <p>
                         We are passionate education dedicated to providing high-quality
                         resources learners all backgrounds.
                     </p>
-                    <div class="rts-contact-link">
+                    <div class="rts-contact-link" style="    color: var(--rt-body);">
                         <a href="mailto:contact@reacthemes.com"><i
                                 class="fa-sharp fa-light fa-location-dot"></i>874/322, C&B Road, Barisal.
                         </a>

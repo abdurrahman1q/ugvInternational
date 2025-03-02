@@ -1,114 +1,116 @@
-@push('style')
-    <style>
-        .notice-card {
-            border: none;
-            border-radius: 12px;
-            padding: 1.25rem;
-            background: #dc3545;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 5px;
-        }
-
-        .notice-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .date-widget {
-            width: 70px;
-            height: 70px;
-            background: #fff;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .date-widget::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(13, 110, 253, 0.1));
-            transform: rotate(45deg);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .notice-card:hover .date-widget::before {
-            opacity: 1;
-        }
-
-        .date-day {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #0d6efd;
-            line-height: 1;
-            transition: color 0.3s ease;
-        }
-
-        .date-month {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #6c757d;
-            transition: color 0.3s ease;
-        }
-
-        .notice-card:hover .date-day {
-            color: #0b5ed7;
-        }
-
-        .notice-card:hover .date-month {
-            color: #495057;
-        }
-
-        .notice-content {
-            flex: 1;
-        }
-
-        .notice-title {
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            color: white
-        }
-
-        @media (max-width: 768px) {
-            .notice-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .notice-slider {
-            padding: 20px 0;
-        }
-
-
-        .viewAllNotices {
-            font-size: 2rem;
-            font-weight: 500;
-            color: #0d6efd;
-            transition: color 0.3s ease;
-        }
-    </style>
-@endpush
 <x-layouts.master>
+    @push('style')
+        <style>
+          
 
+            .notice-card {
+                border: none;
+                border-radius: 12px;
+                padding: 1.25rem;
+                background: #dc3545;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 5px;
+            }
+
+            .notice-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            }
+
+            .date-widget {
+                width: 70px;
+                height: 70px;
+                background: #fff;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .date-widget::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(13, 110, 253, 0.1));
+                transform: rotate(45deg);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .notice-card:hover .date-widget::before {
+                opacity: 1;
+            }
+
+            .date-day {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #0d6efd;
+                line-height: 1;
+                transition: color 0.3s ease;
+            }
+
+            .date-month {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: #6c757d;
+                transition: color 0.3s ease;
+            }
+
+            .notice-card:hover .date-day {
+                color: #0b5ed7;
+            }
+
+            .notice-card:hover .date-month {
+                color: #495057;
+            }
+
+            .notice-content {
+                flex: 1;
+            }
+
+            .notice-title {
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                color: white
+            }
+
+            @media (max-width: 768px) {
+                .notice-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .notice-slider {
+                padding: 20px 0;
+            }
+
+
+            .viewAllNotices {
+                font-size: 2rem;
+                font-weight: 500;
+                color: #0d6efd;
+                transition: color 0.3s ease;
+            }
+        </style>
+    @endpush
 
     <x-banner :sliders="$sliders" />
+
     <div class="rts-funfact my-4">
         <div class="container">
             <div class="row justify-content-center">
@@ -135,6 +137,100 @@
             </div>
         </div>
     </div>
+    <section class="program rts-section-padding">
+        <div class="container">
+            <div class="row rt-center">
+                <div class="col-sm-12">
+                    <div class="rts__section--wrapper v__5">
+                        <h2 class="rts__section--title">Academics & Program</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center g-0">
+                <div class="col-lg-6 col-md-10">
+                    <div class="program__single--item">
+                        <div class="program__single--item--bg">
+                            <img src="assets/images/program/program__bg.jpg" alt="">
+                        </div>
+                        <ul class="program__single--item--list">
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Bachelor%20of%20Business%20Administration(BBA)/1"
+                                    target="_blank" class="link__list">Bachelor of Business Administration (BBA)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Bachelor%20of%20Arts%20(Hon's)%20in%20English/7"
+                                    target="_blank" class="link__list">Bachelor of Arts (Hon's) in English
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Masters%20of%20Business%20Administration(MBA)/2"
+                                    target="_blank" class="link__list">Masters of Business Administration (MBA)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Master%20of%20Public%20Health%20(MPH)/10"
+                                    target="_blank" class="link__list">Master of Public Health (MPH)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Executive%20Masters%20of%20Business%20Administration%20(EMBA)/3"
+                                    target="_blank" class="link__list">Executive Masters of Business Administration
+                                    (EMBA)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10">
+                    <div class="program__single--item">
+                        <div class="program__single--item--bg">
+                            <img src="assets/images/program/program__bg.jpg" alt="">
+                        </div>
+                        <ul class="program__single--item--list">
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/BSc%20in%20Computer%20Science%20&%20Engineering%20(CSE)/4"
+                                    target="_blank" class="link__list">BSc in Computer Science & Engineering (CSE)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/BSc%20in%20Electrical%20&%20Electronics%20Engineering%20(EEE)/5"
+                                    target="_blank" class="link__list">BSc in Electrical & Electronics Engineering (EEE)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/BSc%20in%20Civil%20Engineering%20(CE)/6"
+                                    target="_blank" class="link__list">BSc in Civil Engineering (CE)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/B.Sc%20Mechanical%20Engineering/8" target="_blank"
+                                    class="link__list">B.Sc Mechanical Engineering (ME)
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            <li class="program__single--item--list--item">
+                                <a href="https://ugv.edu.bd/course/Diploma%20in%20Cyber%20Security/9" target="_blank"
+                                    class="link__list">Diploma in Cyber Security
+                                    <span><i class="fa-regular fa-arrow-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="rts-notice rts-section-padding rts-section-padding bg-white">
         <div class="container">
             <div class="row gy-5 gy-lg-0 justify-content-md-center">
@@ -301,100 +397,6 @@
         </div>
     </section>
 
-    <section class="program rts-section-padding">
-        <div class="container">
-            <div class="row rt-center">
-                <div class="col-sm-12">
-                    <div class="rts__section--wrapper v__5">
-                        <h2 class="rts__section--title">Academics & Program</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-md-center g-0">
-                <div class="col-lg-6 col-md-10">
-
-                    <div class="program__single--item">
-                        <div class="program__single--item--bg">
-                            <img src="assets/images/program/program__bg.jpg" alt="">
-                        </div>
-                        {{-- <h5 class="program__single--item--title">Academic Programs</h5> --}}
-
-                        <ul class="program__single--item--list">
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Bachelor of Business Administration
-                                    (BBA)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Bachelor of Arts (Hon's) in English
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Masters of Business Administration
-                                    (MBA)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Master of Public Health (MPH)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Executive Masters of Business
-                                    Administration (EMBA)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-10">
-                    <div class="program__single--item">
-                        <div class="program__single--item--bg">
-                            <img src="assets/images/program/program__bg.jpg" alt="">
-                        </div>
-                        {{-- <h5 class="program__single--item--title">Graduate & Other Programs</h5> --}}
-
-                        <ul class="program__single--item--list">
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">BSc in Computer Science & Engineering
-                                    (CSE)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">BSc in Electrical & Electronics
-                                    Engineering (EEE)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">BSc in Civil Engineering (CE)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">B.Sc Mechanical Engineering (ME)
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-                            <li class="program__single--item--list--item">
-                                <a href="program-single.html" class="link__list">Diploma in Cyber Security
-                                    <span><i class="fa-regular fa-arrow-right"></i></span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 

@@ -22,11 +22,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <style>
         body {
-            color: #fff !important;
+            color: #303030 !important;
             background-color: #E5E4E2;
             /* opacity: 0.9; */
             /* background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#c6c9fc55, #c6c9fc); */
-       
+
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #303030;
+            --secondary-color: #0b5394;
+            --text-color: #ffffff;
+            --heading-font: 'Merriweather', serif;
+            --body-font: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--heading-font);
+
         }
     </style>
 </head>

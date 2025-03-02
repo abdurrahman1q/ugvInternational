@@ -9,16 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Event extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'title',
-        'slug',
-        'description',
-        'start_date',
-        'end_date',
-        'status',
-        'image_path',
-        'images',
-    ];
+    protected $guarded = [];
     protected $casts = [
         'social_links' => 'array',
         'images' => 'array',

@@ -25,7 +25,7 @@
 </header>
 <div id="search-results"></div>
 
-<header class="bg-danger sticky-top d-none d-md-block">
+<header class=" sticky-top d-none d-md-block" style="background-color: #E10E18;">
     <div class="container">
         <nav class="d-flex align-items-center">
             <x-filament-menu-builder::menu slug="navbar" view="filament-menu-builder::components.bootstrap5.menu" />

@@ -10,7 +10,7 @@
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Events Details</li>
                         </ul>
-                        <h2 class="section-title">{{$event->title}}</h2>
+                        <h2 class="section-title">{{ $event->title }}</h2>
                     </div>
                 </div>
             </div>
@@ -34,107 +34,17 @@
                                 <div class="rts-section">
                                     <h4 class="rts-section-title">About The Event</h4>
                                     <p class="description">
-                                        {{ $event->description }}
+                                        {!! $event->description !!}
                                     </p>
                                 </div>
                             </div>
-                            {{-- <div class="event-details__content--feature">
-                                <!-- single feature -->
-                                <div class="single-feature">
-                                    <p class="feature-heading">Interactive Workshops:</p>
-                                    <p class="feature-description">Connect with like-minded individuals, professionals,
-                                        and mentors. Build a network that will support your personal and professional
-                                        growth, fostering collaboration and idea exchange.</p>
-                                </div>
-                                <!-- single feature -->
-                                <div class="single-feature">
-                                    <p class="feature-heading">INetworking Opportunities:</p>
-                                    <p class="feature-description">Hear from renowned thought leaders who will delve
-                                        into topics such as artificial intelligence, sustainability, and the future of
-                                        work. Gain valuable perspectives to help you thrive.</p>
-                                </div>
-                                <!-- single feature -->
-                                <div class="single-feature">
-                                    <p class="feature-heading">Networking Opportunities:</p>
-                                    <p class="feature-description">Hear from renowned thought leaders who will delve
-                                        into topics such as artificial intelligence, sustainability, and the future of
-                                        work. Gain valuable perspectives.</p>
-                                </div>
-                                <!-- single feature -->
-                                <div class="single-feature">
-                                    <p class="feature-heading">Registration:</p>
-                                    <p class="feature-description">Secure your spot today and be part of the Future
-                                        Minds Symposium. Early bird registration is now open at www.Unipix Don't miss
-                                        this opportunity to gain valuable insights.</p>
-                                </div>
-                            </div> --}}
+            
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-10">
                     <div class="event-sidebar">
-                        <!-- event information -->
-                        {{-- <div class="event-information">
-                            <h5 class="rts-section-title">Event Information</h5>
-                            <div class="single-info">
-                                <!-- single repeat item -->
-                                <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-light fa-money-check-dollar"></i></span>
-                                        Cost:</div>
-                                    <div class="right-side">
-                                        <span class="desc price">$86.00</span>
-                                    </div>
-                                </div>
-                                <!-- single repeat item -->
-                                <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-regular fa-calendar-week"></i></span>
-                                        Date:</div>
-                                    <div class="right-side">
-                                        <span class="desc">December 26, 2023</span>
-                                    </div>
-                                </div>
-                                <!-- single repeat item -->
-                                <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-thin fa-users"></i></span> Total Slot:
-                                    </div>
-                                    <div class="right-side">
-                                        <span class="desc">54</span>
-                                    </div>
-                                </div>
-                                <!-- single repeat item -->
-                                <div class="info-repeat">
-                                    <div class="left-side"><span><i class="fa-regular fa-lock"></i></span> Booked Slot:
-                                    </div>
-                                    <div class="right-side">
-                                        <span class="desc">0</span>
-                                    </div>
-                                </div>
-                                <!-- book button -->
-                            </div>
-                            <div class="book-button">
-                                <a href="#" class="rts-theme-btn primary">Book Now</a>
-                            </div>
-                            <!-- countdown -->
-                            <div class="event-count-down">
-                                <div class="count-item">
-                                    <p><span id="day"></span>day</p>
-                                </div>
-                                <div class="count-item">
-                                    <p><span id="hour"></span>hours</p>
-                                </div>
-                                <div class="count-item">
-                                    <p><span id="minute"></span>minute</p>
-                                </div>
-                                <div class="count-item">
-                                    <p><span id="second"></span>second</p>
-                                </div>
-                            </div>
-                            <!-- clear interval -->
-                            <div class="event-timeout rt-center mt--20">
-                                <div id="timeout"></div>
-                            </div>
-                        </div> --}}
-                        <!-- event venue -->
+                     
                         <div class="event-venue mt--50">
                             <h5 class="rts-section-title">Event Information</h5>
                             <div class="event-venu-information">
@@ -197,7 +107,7 @@
                                         </div>
                                     @endif
 
-                                    @if ($event->website || ($event->social_links && json_decode($event->social_links)))
+                                    @if ($event->website || $event->social_links)
                                         <div class="info-repeat">
                                             <div class="left-side bold">Web Site:</div>
                                             <div class="right-side">
@@ -211,7 +121,7 @@
 
                                                     @if ($event->social_links)
                                                         @php
-                                                            $socialLinks = json_decode($event->social_links, true);
+                                                            $socialLinks = $event->social_links;
                                                         @endphp
                                                         @if ($socialLinks)
                                                             <span class="social-links">
@@ -255,7 +165,8 @@
                     </div>
                 </div>
             </div>
-            @if ($event->location)
+       
+            @if ($event->map_embed_url)
                 <div class="row">
                     <div class="event-location mt--60">
                         <div class="rts-section">
